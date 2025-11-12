@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <windows.h>
 #define TAMTOKEN 50
 
 //ClonaPalabras: toma una palabra y obtiene todas las combinaciones y permutaciones requeridas por el metodo
@@ -11,7 +12,7 @@ void ClonaPalabras(char szPalabraLeida[50] // Palabra a clonar
 
 	int NumSugeridas = 0;
 	int auxcont;
-	char letras[27] = "abcdefghijklmnopqrstuvwxyz";
+	char letras[39] = "abcdefghijklmnñopqrstuvwxyzáéíóú";
 	int longi = strlen(szPalabraLeida);
 	
 	//Eliminación de un caracter
@@ -49,7 +50,7 @@ void ClonaPalabras(char szPalabraLeida[50] // Palabra a clonar
 	for (int h = 0; h < longi; h++) {
 		char buffer[50];
 		strcpy_s(buffer, szPalabraLeida);
-		for (int i = 0; i < 26; i++) {
+		for (int i = 0; i < 32; i++) {
 			szPalabraLeida[h] = letras[i];
 			strcpy_s(szPalabrasSugeridas[i + auxcont], szPalabraLeida);
 			NumSugeridas++;
@@ -77,7 +78,7 @@ void ClonaPalabras(char szPalabraLeida[50] // Palabra a clonar
 		for (int i = 0; i < longi - p; i++) {
 			szPalabraLeida[i + 1 + h] = buffer[i + h];
 		}
-		for (int j = 0; j < 26; j++) {
+		for (int j = 0; j < 32; j++) {
 			szPalabraLeida[h] = letras[j];
 			strcpy_s(szPalabrasSugeridas[j + auxcont], szPalabraLeida);
 			NumSugeridas++;
@@ -98,6 +99,7 @@ int main() {
 	char PalabraLeida[50];
 	char PalabrasSugeridas[2000][TAMTOKEN];
 	int NumSugeridas = 0;
+	
 
 	fgets(PalabraLeida, 50, stdin);
 	//Quitar salto de línea
@@ -115,7 +117,6 @@ int main() {
 	printf("%i\n", NumSugeridas);
 	for (int i = 0; i < NumSugeridas; i++)
 	printf("%s\n", PalabrasSugeridas[i]);
-	
 
 
 
