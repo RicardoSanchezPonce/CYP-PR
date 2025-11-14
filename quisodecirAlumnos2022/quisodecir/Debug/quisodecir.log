@@ -1,0 +1,11 @@
+﻿  Corrector.cpp
+C:\Users\Crazy\Desktop\Proyecto final\quisodecirAlumnos2022\quisodecir\Corrector.cpp(42,21): warning C4018: '<': no coinciden signed/unsigned
+  (compilando archivo de origen "/Corrector.cpp")
+  
+C:\Users\Crazy\Desktop\Proyecto final\quisodecirAlumnos2022\quisodecir\Corrector.cpp(52,23): warning C4018: '<': no coinciden signed/unsigned
+  (compilando archivo de origen "/Corrector.cpp")
+  
+C:\Users\Crazy\Desktop\Proyecto final\quisodecirAlumnos2022\quisodecir\Corrector.cpp(91,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (compilando archivo de origen "/Corrector.cpp")
+  
+  quisodecir.vcxproj -> C:\Users\Crazy\Desktop\Proyecto final\quisodecirAlumnos2022\Debug\quisodecir.exe
