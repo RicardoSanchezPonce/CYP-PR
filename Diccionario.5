@@ -1,0 +1,123 @@
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define TAMTOKEN 50
+#define MAXPAL 50000
+
+int esDelimitador(char c) {
+    return c == ' ' || c == '\t' || c == '\n' ||
+        c == ',' || c == ';' || c == '.' ||
+        c == '(' || c == ')' || c == '\r';
+}
+
+int buscaPalabra(char palabra[][TAMTOKEN], int num, char* pal) {
+    for (int i = 0; i < num; i++) {
+        if (strcmp(palabra[i], pal) == 0)
+            return i;
+    }
+    return -1;
+}
+
+void Diccionario(
+    char* szNombre,
+    char szPalabras[][TAMTOKEN],
+    int iEstadisticas[],
+    int& iNumElementos)
+{
+    FILE* fp = NULL;
+
+    fopen_s(&fp, szNombre, "r");
+    if (fp == NULL) {
+        printf("No se pudo abrir el archivo: %s\n", szNombre);
+        return;
+    }
+
+    char palabra[TAMTOKEN];
+    int pos = 0;
+    iNumElementos = 0;
+
+    for (int c = fgetc(fp); c != EOF; c = fgetc(fp)) {
+
+        if (!esDelimitador(c)) {
+            if (pos < TAMTOKEN - 1) {
+                palabra[pos++] = tolower(c);
+            }
+        }
+        else if (pos > 0) {
+            palabra[pos] = '\0';
+
+            int indice = buscaPalabra(szPalabras, iNumElementos, palabra);
+            if (indice >= 0) {
+                iEstadisticas[indice]++;
+            }
+            else {
+                strcpy_s(szPalabras[iNumElementos], TAMTOKEN, palabra);
+                iEstadisticas[iNumElementos] = 1;
+                iNumElementos++;
+            }
+
+            pos = 0;
+        }
+    }
+
+    if (pos > 0) {
+        palabra[pos] = '\0';
+
+        int indice = buscaPalabra(szPalabras, iNumElementos, palabra);
+        if (indice >= 0) {
+            iEstadisticas[indice]++;
+        }
+        else {
+            strcpy_s(szPalabras[iNumElementos], TAMTOKEN, palabra);
+            iEstadisticas[iNumElementos] = 1;
+            iNumElementos++;
+        }
+    }
+
+    fclose(fp);
+}
+
+void ordenarAlfabetico(char palabras[][TAMTOKEN], int frecuencias[], int num);
+
+
+int main() {
+
+    char palabras[MAXPAL][TAMTOKEN];
+    int frecuencias[MAXPAL];
+    int num = 0;
+
+    Diccionario((char*)"texto.txt", palabras, frecuencias, num);
+
+    ordenarAlfabetico(palabras, frecuencias, num);
+
+    for (int i = 0; i < num && i < 20; i++) {
+        printf("%s : %d\n", palabras[i], frecuencias[i]);
+    }
+
+    return 0;
+}
+void ordenarAlfabetico(char palabras[][TAMTOKEN], int frecuencias[], int num)
+{
+    for (int i = 0; i < num - 1; i++) {
+        for (int j = i + 1; j < num; j++) {
+
+            if (strcmp(palabras[i], palabras[j]) > 0) {
+
+                char tmp[TAMTOKEN];
+                int freqTmp;
+
+                // intercambiar palabras
+                strcpy_s(tmp, TAMTOKEN, palabras[i]);
+                strcpy_s(palabras[i], TAMTOKEN, palabras[j]);
+                strcpy_s(palabras[j], TAMTOKEN, tmp);
+
+                // intercambiar frecuencias
+                freqTmp = frecuencias[i];
+                frecuencias[i] = frecuencias[j];
+                frecuencias[j] = freqTmp;
+            }
+        }
+    }
+}
