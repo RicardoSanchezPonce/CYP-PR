@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Crazy\\Desktop\\Proyecto final\\quisodecirAlumnos2022\\",
+  "WorkspaceRootPath": "C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|C:\\Users\\Crazy\\Desktop\\Proyecto final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|solutionrelative:quisodecir\\quisodecir.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\Corrector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|solutionrelative:quisodecir\\Corrector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|C:\\Users\\Crazy\\Desktop\\Proyecto final\\quisodecirAlumnos2022\\quisodecir\\Corrector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|solutionrelative:quisodecir\\Corrector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|solutionrelative:quisodecir\\quisodecir.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "quisodecir.cpp",
-              "DocumentMoniker": "C:\\Users\\Crazy\\Desktop\\Proyecto final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp",
+              "DocumentMoniker": "C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp",
               "RelativeDocumentMoniker": "quisodecir\\quisodecir.cpp",
-              "ToolTip": "C:\\Users\\Crazy\\Desktop\\Proyecto final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp",
+              "ToolTip": "C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp",
               "RelativeToolTip": "quisodecir\\quisodecir.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAowDAAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAjwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-13T22:41:43.182Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Corrector.cpp",
-              "DocumentMoniker": "C:\\Users\\Crazy\\Desktop\\Proyecto final\\quisodecirAlumnos2022\\quisodecir\\Corrector.cpp",
+              "DocumentMoniker": "C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\Corrector.cpp",
               "RelativeDocumentMoniker": "quisodecir\\Corrector.cpp",
-              "ToolTip": "C:\\Users\\Crazy\\Desktop\\Proyecto final\\quisodecirAlumnos2022\\quisodecir\\Corrector.cpp",
+              "ToolTip": "C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\Corrector.cpp",
               "RelativeToolTip": "quisodecir\\Corrector.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-08T23:04:22.364Z",
               "EditorCaption": ""

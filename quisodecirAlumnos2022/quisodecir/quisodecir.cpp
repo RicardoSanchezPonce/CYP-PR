@@ -17,6 +17,7 @@
 #include "corrector.h"
 
 
+
 int main(int argc, char* argv[])
 {
 	char	szNombre[50];
