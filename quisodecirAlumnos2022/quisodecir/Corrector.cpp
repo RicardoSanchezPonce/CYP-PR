@@ -28,9 +28,10 @@ void	Diccionario(char* szNombre, char szPalabras[][TAMTOKEN], int iEstadisticas[
 
 
 	FILE* fp;
-	int i = 0;
-	int h = 0;
 	char c;
+	char tmp[TAMTOKEN];
+	int h = 0;                      // índice de tmp
+	int n = 0;                      // número de palabras únicas almacenadas
 
 	fopen_s(&fp, szNombre, "r");
 	if (fp != NULL) {
@@ -39,75 +40,102 @@ void	Diccionario(char* szNombre, char szPalabras[][TAMTOKEN], int iEstadisticas[
 
 			int esSeparador = 0;
 
-			if (c == ' ' || c == ',' || c == '\n' || c == '\t' || c == '\r' || c == '.' || c == '(' || c == ')' || c == ';')
+			if (c == ' ' || c == ',' || c == '\n' || c == '\t' ||
+				c == '\r' || c == '.' || c == '(' || c == ')' || c == ';')
 				esSeparador = 1;
 
 			if (!esSeparador) {
 
 				if (h < TAMTOKEN - 1) {
-					szPalabras[i][h++] = c;
+
+					// pasar a minúscula al momento de leer
+					c = tolower(c);
+
+					tmp[h++] = c;
 				}
 
 			}
 			else {
 
 				if (h > 0) {
-					szPalabras[i][h] = '\0';
-					i++;
-					h = 0;
 
-					// *** EVITA DESBORDES ***
-					if (i >= NUMPALABRAS) {
-						break;
+					tmp[h] = '\0';
+
+					// buscar si ya existe (búsqueda lineal)
+					int existe = -1;
+					for (int k = 0; k < n; k++) {
+						if (strcmp(szPalabras[k], tmp) == 0) {
+							existe = k;
+							break;
+						}
 					}
+
+					if (existe == -1) {
+						if (n < NUMPALABRAS) {
+							strcpy_s(szPalabras[n],50, tmp);
+							iEstadisticas[n] = 1;
+							n++;
+						}
+					}
+					else {
+						iEstadisticas[existe]++;
+					}
+
+					h = 0;   // reiniciar índice
 				}
 			}
 		}
 
-		// Cerrar última palabra si no excede el límite
-		if (h > 0 && i < NUMPALABRAS) {
-			szPalabras[i][h] = '\0';
-			i++;
+		// Última palabra si no terminó con separador
+		if (h > 0) {
+			tmp[h] = '\0';
+
+			int existe = -1;
+			for (int k = 0; k < n; k++) {
+				if (strcmp(szPalabras[k], tmp) == 0) {
+					existe = k;
+					break;
+				}
+			}
+
+			if (existe == -1) {
+				if (n < NUMPALABRAS) {
+					strcpy_s(szPalabras[n],50, tmp);
+					iEstadisticas[n] = 1;
+					n++;
+				}
+			}
+			else {
+				iEstadisticas[existe]++;
+			}
 		}
 
 		fclose(fp);
 	}
 
-	iNumElementos = i;
-	//Pasar todos los elementos a minusculas
+	iNumElementos = n;
 
-	for (int i = 0; i < iNumElementos; i++) {         // Recorre cada cadena
-		for (int j = 0; szPalabras[i][j] != '\0'; j++) {   // Recorre cada carácter
-			szPalabras[i][j] = tolower(szPalabras[i][j]);         // Convierte a minúscula
-		}
-	}
+	
 
 	//Ordenar alfabeticamente
 	for (int i = 0; i < iNumElementos - 1; i++) {
 		char buffer[TAMTOKEN];
+		int aux;
 		for (int j = i + 1; j < iNumElementos; j++) {
 			if (strcmp(szPalabras[i], szPalabras[j]) > 0) {
 				strcpy_s(buffer, 50, szPalabras[i]);
 				strcpy_s(szPalabras[i], 50, szPalabras[j]);
 				strcpy_s(szPalabras[j], 50, buffer);
+
+				aux = iEstadisticas[i];
+				iEstadisticas[i] = iEstadisticas[j];
+				iEstadisticas[j] = aux;
+				
+
 			}
 		}
 	}
-	//Quitar palabras repetidas y contar en iEstadisticas
-	int nuevo = 0;
-
-	for (int i = 0; i < iNumElementos; i++) {
-		if (i == 0 || strcmp(szPalabras[i], szPalabras[i - 1]) != 0) {
-			strcpy_s(szPalabras[nuevo], 50, szPalabras[i]);
-			iEstadisticas[nuevo] = 1;
-			nuevo++;
-		}
-		else
-		{
-			iEstadisticas[nuevo - 1]++;
-		}
-	}
-	iNumElementos = nuevo;
+	
 
 }
 /*****************************************************************************************************************
@@ -137,7 +165,7 @@ void	ListaCandidatas		(
 
 	
 	iNumLista = 0;
-	int conta = 0, contaux = 0;
+	int conta = 0;
 	for (int i = 0; i < iNumElementos; i++) {
 		for (int h = 0; h < iNumSugeridas; h++) {
 			if (strcmp(szPalabras[i], szPalabrasSugeridas[h]) == 0) {
@@ -149,34 +177,49 @@ void	ListaCandidatas		(
 			}
 		}
 	}
+	//Eliminar repetidas
+	int nuevo = 0;  // cantidad final sin repetidas
+
+	for (int i = 0; i < iNumLista; i++) {
+
+		int yaExiste = 0;
+
+		// comprobar si la palabra ya está en la nueva lista
+		for (int j = 0; j < nuevo; j++) {
+			if (strcmp(szListaFinal[j], szListaFinal[i]) == 0) {
+				yaExiste = 1;
+			}
+		}
+
+		// si no existía, copiar a la lista limpia
+		if (yaExiste == 0) {
+			strcpy_s(szListaFinal[nuevo], TAMTOKEN, szListaFinal[i]);
+			iPeso[nuevo] = iPeso[i];
+			nuevo++;
+		}
+	}
+
+	iNumLista = nuevo;
 
 	//Ordenar de mayor a menor peso
 	for (int i = 0; i < iNumLista - 1; i++) {
-		int numaux = 0;
-		char wordaux[TAMTOKEN];
-		for (int h = 0; h < iNumLista; h++) {
 
-			if(iPeso[h] > iPeso[h + 1]){}
-			else {
-				if (iPeso[h] < iPeso[h + 1]) {
-					numaux = iPeso[h + 1];
-					iPeso[h + 1] = iPeso[h];
-					iPeso[h] = numaux;
+		for (int h = 0; h < iNumLista - 1 - i; h++) {
 
-					strcpy_s(wordaux, szListaFinal[h + 1]);
-					strcpy_s(szListaFinal[h + 1], 50, szListaFinal[h]);
-					strcpy_s(szListaFinal[h], 50, wordaux);
+			if (iPeso[h] < iPeso[h + 1]) {
 
+				int aux = iPeso[h];
+				iPeso[h] = iPeso[h + 1];
+				iPeso[h + 1] = aux;
 
-				}
-
+				char waux[TAMTOKEN];
+				strcpy_s(waux, TAMTOKEN, szListaFinal[h]);
+				strcpy_s(szListaFinal[h], TAMTOKEN, szListaFinal[h + 1]);
+				strcpy_s(szListaFinal[h + 1], TAMTOKEN, waux);
 			}
-
-
 		}
-
-
 	}
+
 	
 	
 }

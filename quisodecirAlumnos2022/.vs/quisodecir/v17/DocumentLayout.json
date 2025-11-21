@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\Corrector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|solutionrelative:quisodecir\\Corrector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{07C01837-8A08-4EB8-9FD6-9434D9C4E5E9}|quisodecir\\quisodecir.vcxproj|solutionrelative:quisodecir\\quisodecir.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "quisodecir.cpp",
-              "DocumentMoniker": "C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp",
-              "RelativeDocumentMoniker": "quisodecir\\quisodecir.cpp",
-              "ToolTip": "C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\quisodecir.cpp",
-              "RelativeToolTip": "quisodecir\\quisodecir.cpp",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAjwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-11-13T22:41:43.182Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -41,7 +24,7 @@
               "RelativeDocumentMoniker": "quisodecir\\Corrector.cpp",
               "ToolTip": "C:\\Users\\Crazy\\Desktop\\Proyecto_final\\quisodecirAlumnos2022\\quisodecir\\Corrector.cpp",
               "RelativeToolTip": "quisodecir\\Corrector.cpp",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEAAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAPkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-08T23:04:22.364Z",
               "EditorCaption": ""
