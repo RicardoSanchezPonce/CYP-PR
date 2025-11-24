@@ -11,3 +11,7 @@ así como también se suben los diccionarios a la carpeta fuente
 
 20/11/2025
 Se sube la versión 1.0 que ya saca 10, pero queda refinar detalles de estilo
+
+24/11/2025
+Se sube la versión final con 10, aplicando las correciones de estilo y no 
+utilizando funciones cochinas como "break"
